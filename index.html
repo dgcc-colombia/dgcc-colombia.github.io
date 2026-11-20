@@ -134,6 +134,22 @@ body{background:var(--dg-bg)}
 .mat .txt{flex:1 1 420px;min-width:0}
 .mat .cta{text-decoration:none}
 .mat .wait{font-size:16px;font-weight:700;color:var(--c-primary);background:var(--c-sky);border-radius:var(--dg-radius-sm);padding:12px 18px}
+.rnb{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:50;font-family:var(--font)}
+.rnb .tg{display:none}
+.rnb ul{list-style:none;background:#fff;border:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:8px}
+.rnb a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--c-sub);text-decoration:none;cursor:pointer;white-space:nowrap}
+.rnb a i{width:8px;height:8px;border-radius:50%;background:#C3CCD8;flex:none}
+.rnb a:hover{background:var(--c-sky);color:var(--c-primary)}
+.rnb a.on{color:var(--c-primary);background:var(--c-sky)}
+.rnb a.on i{background:var(--c-yellow);box-shadow:0 0 0 3px #FFE9A8}
+.rnb a.top{border-top:1px solid var(--dg-line);border-radius:0 0 10px 10px;margin-top:4px;padding-top:11px}
+@media (max-width:1279px){
+ .rnb{top:auto;bottom:20px;transform:none;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+ .rnb .tg{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;border:0;background:var(--c-primary);color:#fff;box-shadow:0 6px 18px rgba(0,72,132,.35);cursor:pointer;font:inherit;font-size:13px;font-weight:700}
+ .rnb ul{display:none;order:-1}
+ .rnb.open ul{display:block}
+}
+@media print{.rnb{display:none}}
 [hidden]{display:none !important}
 @media (max-width:760px){.mat .wrap{margin:0 16px;padding:22px 18px}}
 </style>
@@ -209,6 +225,7 @@ body{background:var(--dg-bg)}
   </div></section>
 </main>
 
+<nav class="rnb" id="rnb" aria-label="Menu"><ul id="rnbl"></ul><button class="tg" type="button" id="rnbt" aria-expanded="false"></button></nav>
 <footer class="site-foot"><div class="wrap"><strong data-t="brand"></strong><span data-t="foot"></span><span id="org"></span></div></footer>
 
 <script>
@@ -220,7 +237,7 @@ var ORG={ko:"",es:""};
 var T={
  ko:{eyebrow:"한-콜롬비아 디지털정부 협력센터(DGCC)",brand:"AIㆍ디지털정부 역량강화 교육",title2:"AIㆍ디지털정부\n역량강화 교육",
   lead:"콜롬비아 디지털정부 유관 공무원이 AIㆍ디지털정부 정책을 개발하고 사업을 추진하는 역량을 높이기 위한 3일 과정입니다. 한국의 디지털정부와 AI 경험을 콜롬비아에 적용할 방향과 함께 다룹니다.",
-  cta:"일정 보기",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",
+  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",
   fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
   h_tt:"교육 일정과 강의 내용",gov:"1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
   days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
@@ -235,7 +252,7 @@ var T={
   foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
  es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
   lead:"Curso de 3 días para fortalecer las capacidades de los servidores públicos vinculados al gobierno digital en la formulación de políticas y el impulso de proyectos de IA y gobierno digital. Presenta la experiencia de Corea junto con enfoques para su adaptación para Colombia.",
-  cta:"Ver el programa",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",
+  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",
   fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
   h_tt:"Programa y contenido de las clases",gov:"Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
   days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
@@ -302,7 +319,16 @@ function render(){
   t.info.forEach(function(x){var d=el("div");d.appendChild(el("h3",null,x[0]));d.appendChild(el("p",null,x[1]));c.appendChild(d);});
   var ct=CONTACT[lang];document.querySelectorAll(".opt-contact").forEach(function(e){e.hidden=!ct;});document.getElementById("contact").textContent=ct;
   var o=document.getElementById("org");o.textContent=ORG[lang];o.hidden=!ORG[lang];
+  var R=document.getElementById("rnbl");R.textContent="";
+  [["sec-tt","n1"],["sec-mat","n6"],["sec-info","n3"],["sec-survey","n5"]].forEach(function(x){var a=el("a");a.dataset.sec=x[0];a.appendChild(el("i"));a.appendChild(el("span",null,t[x[1]]));a.addEventListener("click",function(){var g=document.getElementById(x[0]);if(g)g.scrollIntoView({behavior:"smooth",block:"start"});closeR();});R.appendChild(a);});
+  var tp=el("a","top");tp.appendChild(el("i"));tp.appendChild(el("span",null,"↑ "+t.top));tp.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});closeR();});R.appendChild(tp);
+  document.getElementById("rnbt").textContent=t.menu;markR();
 }
+function closeR(){var n=document.getElementById("rnb");n.classList.remove("open");document.getElementById("rnbt").setAttribute("aria-expanded","false");}
+document.getElementById("rnbt").addEventListener("click",function(){var n=document.getElementById("rnb");var o=n.classList.toggle("open");this.setAttribute("aria-expanded",String(o));});
+function markR(){var y=window.scrollY+window.innerHeight*0.35,cur="";["sec-tt","sec-mat","sec-info","sec-survey"].forEach(function(id){var e=document.getElementById(id);if(e&&e.offsetTop<=y)cur=id;});
+  document.querySelectorAll("#rnbl a[data-sec]").forEach(function(a){a.classList.toggle("on",a.dataset.sec===cur);});}
+window.addEventListener("scroll",markR,{passive:true});
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){lang=b.dataset.lang;try{localStorage.setItem(KEY,lang);}catch(e){}render();});});
 try{var s=localStorage.getItem(KEY);if(s)lang=s;else if((navigator.language||"").toLowerCase().indexOf("es")===0)lang="es";}catch(e){}
 document.querySelectorAll("[data-go]").forEach(function(a){function go(){var t=document.getElementById(a.dataset.go);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});}
