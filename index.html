@@ -150,6 +150,8 @@ body{background:var(--dg-bg)}
  .rnb.open ul{display:block}
 }
 @media print{.rnb{display:none}}
+.svbtn{text-decoration:none;margin-top:4px}
+.survey .qr img{image-rendering:pixelated}
 [hidden]{display:none !important}
 @media (max-width:760px){.mat .wrap{margin:0 16px;padding:22px 18px}}
 </style>
@@ -210,7 +212,7 @@ body{background:var(--dg-bg)}
   </div></section>
 
   <section class="band tint survey" id="sec-survey"><div class="wrap">
-    <div class="qrw" id="qrw"><div class="qr" id="qr"></div><span data-t="sv_cap"></span></div>
+    <div class="qrw" id="qrw"><div class="qr" id="qr"></div><span data-t="sv_cap"></span><a class="cta svbtn" id="svbtn" target="_blank" rel="noopener"></a></div>
     <div class="txt">
       <h2 data-t="h_sv"></h2>
       <p class="gov" data-t="gov_sv"></p>
@@ -231,7 +233,8 @@ body{background:var(--dg-bg)}
 <script>
 (function(){
 var DRIVE="https://drive.google.com/drive/folders/1P8dzOJmtGUQdYx4Mh9TI7m-sArDGYd80";
-var QR="";
+var QR="data:image/png;base64,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";
+var SURVEY="https://forms.gle/xivoxTqTzffw1ktp6";
 var CONTACT={ko:"",es:""};
 var ORG={ko:"",es:""};
 var T={
@@ -246,8 +249,8 @@ var T={
   h_mat:"교재",gov_mat:"강의 교재(스페인어)를 휴대전화나 컴퓨터로 내려받을 수 있습니다.",dl_on:"교재 내려받기 (구글 드라이브)",dl_off:"교재는 2026. 12. 2.부터 이곳에서 내려받을 수 있습니다.",
   h_info:"참가 안내",
   info:[["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외 (MinTIC 소집)"],["참여 방법","대면 강의 기본. 대면 참석이 어려우면 실시간 화상 참여 가능"],["통역","모든 강의에 스페인어 순차통역 제공"],["교재","스페인어 교재를 2026. 12. 2.에 배포. 이 페이지의 「교재」에서 내려받기"],["수료","전체 시간의 80% 이상 출석 시 수료증 발급"]],
-  h_sv:"만족도 조사 참여 안내",gov_sv:"당일 강의가 모두 끝나면 QR 코드로 만족도 조사에 접속합니다. 조사를 제출해야 출석이 인정됩니다.",sv_cap:"교육 만족도 조사",
-  sv:[["QR 코드 스캔","휴대전화 카메라로 교육장에 안내된 QR 코드 스캔"],["만족도 조사 응답","당일 마지막 강의가 끝난 뒤 응답"],["조사 제출","제출을 마친 참가자만 출석 인정"]],
+  h_sv:"만족도 조사 참여 안내",gov_sv:"당일 강의가 모두 끝나면 QR 코드로 만족도 조사에 접속합니다. 조사를 제출해야 출석이 인정됩니다.",sv_cap:"교육 만족도 조사",sv_go:"만족도 조사 바로가기",
+  sv:[["QR 코드 스캔","휴대전화 카메라로 QR 코드를 스캔하거나 「만족도 조사 바로가기」 누르기"],["만족도 조사 응답","당일 마지막 강의가 끝난 뒤 응답"],["조사 제출","제출을 마친 참가자만 출석 인정"]],
   sv_must:"만족도 조사를 제출해야 출석이 인정됩니다. 반드시 QR 코드를 스캔해 참여해 주시기 바랍니다.",
   foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
  es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
@@ -261,8 +264,8 @@ var T={
   h_mat:"Material didáctico",gov_mat:"El material didáctico de las clases (en español) se puede descargar desde el celular o el computador.",dl_on:"Descargar el material didáctico (Google Drive)",dl_off:"El material didáctico estará disponible para descarga en esta página a partir del 02/12/2026.",
   h_info:"Información para participantes",
   info:[["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital, convocados por el MinTIC"],["Modalidad","Clases presenciales. Quienes no puedan asistir podrán participar por videoconferencia en tiempo real"],["Interpretación","Todas las clases cuentan con interpretación consecutiva al español"],["Material didáctico","El material en español se distribuye el 02/12/2026 y se descarga desde la sección «Material» de esta página"],["Certificado","Se expide un certificado de finalización con una asistencia del 80 % o más"]],
-  h_sv:"Encuesta de satisfacción",gov_sv:"Al terminar las clases del día, acceda a la encuesta de satisfacción con el código QR. La asistencia se reconoce una vez enviada la encuesta.",sv_cap:"Encuesta de satisfacción de la capacitación",
-  sv:[["Escanee el código QR","Use la cámara del celular para escanear el código QR indicado en el lugar de la capacitación"],["Responda la encuesta","Se responde al terminar la última clase del día"],["Envíe la encuesta","La asistencia se reconoce solo a quienes envían la encuesta"]],
+  h_sv:"Encuesta de satisfacción",gov_sv:"Al terminar las clases del día, acceda a la encuesta de satisfacción con el código QR. La asistencia se reconoce una vez enviada la encuesta.",sv_cap:"Encuesta de satisfacción de la capacitación",sv_go:"Abrir la encuesta",
+  sv:[["Escanee el código QR","Escanee el código QR con la cámara del celular o pulse «Abrir la encuesta»"],["Responda la encuesta","Se responde al terminar la última clase del día"],["Envíe la encuesta","La asistencia se reconoce solo a quienes envían la encuesta"]],
   sv_must:"La asistencia se reconoce únicamente al enviar la encuesta de satisfacción. Es indispensable escanear el código QR y participar en la encuesta.",
   foot:"Capacitación del proyecto «Estrategia para la mejora de la infraestructura, los servicios y la gobernanza del gobierno digital basado en IA en Colombia»."}
 };
@@ -312,6 +315,7 @@ function render(){
   var dl=document.getElementById("dl");dl.textContent="";
   if(DRIVE){var a=el("a","cta",t.dl_on);a.href=DRIVE;a.target="_blank";a.rel="noopener";dl.appendChild(a);}else{dl.appendChild(el("p","wait",t.dl_off));}
   var qw=document.getElementById("qrw"),q=document.getElementById("qr");q.textContent="";
+  var sb=document.getElementById("svbtn");sb.href=SURVEY;sb.textContent=t.sv_go;
   if(QR){qw.hidden=false;var im=el("img");im.src=QR;im.alt=t.sv_cap;q.appendChild(im);}else{qw.hidden=true;}
   var st=document.getElementById("steps");st.textContent="";
   t.sv.forEach(function(x,i){var li=el("li");li.appendChild(el("i",null,String(i+1)));li.appendChild(el("b",null,x[0]));li.appendChild(el("span",null,x[1]));st.appendChild(li);});
