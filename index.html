@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capacitación en IA y gobierno digital | DGCC</title>
+<style>
+:root{
+  --c-primary:#004884; --c-blue:#3366CC; --c-sky:#E8F0FC; --c-yellow:#FFB000; --c-yellow-soft:#FFF4D6; --c-red:#C8102E;
+  --c-ink:#14212E; --c-sub:#46586B; --c-line:#D8E0EA;
+  --font:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{word-break:keep-all;overflow-wrap:break-word;background:#fff;font-family:var(--font);color:var(--c-ink);line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.flag{display:flex;width:132px;height:8px;margin-bottom:34px}
+.flag i{display:block;height:100%}
+.flag i:nth-child(1){flex:2;background:var(--c-yellow)}
+.flag i:nth-child(2){flex:1;background:var(--c-blue)}
+.flag i:nth-child(3){flex:1;background:var(--c-red)}
+
+.nav{background:#fff;border-bottom:1px solid var(--c-line);margin-top:56px;border-top:1px solid var(--c-line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px}
+.brand{font-weight:700;color:var(--c-primary);font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menu{display:flex;align-items:center;gap:4px}
+.menu a{font-size:15px;font-weight:600;color:var(--c-ink);text-decoration:none;padding:10px 12px;cursor:pointer}
+.menu a:hover{color:var(--c-primary);background:var(--c-sky)}
+.lang{display:inline-flex;border:1px solid var(--c-primary);overflow:hidden;flex:none}
+.lang button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border:0;background:transparent;color:var(--c-primary);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--c-primary);color:#fff}
+
+.hero{padding:96px 0 88px}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 72px}
+.hero .main{flex:999 1 520px;min-width:0}
+.hero h1{font-size:clamp(34px,5.2vw,64px);font-weight:700;letter-spacing:-.025em;line-height:1.14;color:var(--c-primary);white-space:pre-line}
+.hero .lead{margin-top:24px;font-size:18px;line-height:1.7;color:var(--c-sub);max-width:46ch}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:36px}
+.cta{display:inline-block;background:var(--c-primary);color:#fff;font:inherit;font-size:16px;font-weight:700;padding:14px 30px;border:0;cursor:pointer}
+.cta:hover{background:#003462}
+.sub-link{font:inherit;font-size:16px;font-weight:600;color:var(--c-ink);background:none;border:0;border-bottom:1px solid var(--c-ink);padding:6px 0;cursor:pointer}
+.sub-link:hover{color:var(--c-primary);border-color:var(--c-primary)}
+.facts{flex:1 1 340px;border-top:3px solid var(--c-primary)}
+.facts div{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--c-line)}
+.facts dt{flex:0 0 96px;font-size:15px;font-weight:700;color:var(--c-primary)}
+.facts dd{font-size:16px}
+
+.band{padding:64px 0;scroll-margin-top:16px}
+.band.tint{background:#F6F8FB}
+.band.line{border-top:1px solid var(--c-line);padding:56px 0}
+h2{font-size:28px;font-weight:700;color:var(--c-primary)}
+.gov{margin-top:6px;font-size:16px;color:var(--c-sub);max-width:70ch}
+
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:32px 28px;margin-top:28px}
+.day{display:grid;grid-template-rows:subgrid;grid-row:span 6;row-gap:0;border-top:3px solid var(--c-primary)}
+.day .dh{display:flex;align-items:baseline;gap:12px;padding:14px 0 12px;border-bottom:1px solid var(--c-line)}
+.day .dh b{font-size:56px;font-weight:700;line-height:1;color:var(--c-primary);letter-spacing:-.03em}
+.day .dh span{font-size:15px;color:var(--c-sub)}
+.minor{display:flex;gap:12px;padding:10px 0;font-size:14px;color:var(--c-sub);border-bottom:1px solid var(--c-line);font-variant-numeric:tabular-nums}
+.blk{padding:18px;display:flex;flex-direction:column;gap:8px}
+.blk.am{background:var(--c-sky)}
+.blk.pm{background:var(--c-yellow-soft)}
+.blk .slot{font-size:14px;font-weight:700;color:var(--c-primary);font-variant-numeric:tabular-nums}
+.blk h3{font-size:19px;line-height:1.4}
+.blk ul{padding-left:18px;font-size:15px;line-height:1.6}
+
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:0 40px;margin-top:18px;border-bottom:1px solid var(--c-line)}
+.info div{padding:16px 0;border-top:1px solid var(--c-line)}
+.info h3{font-size:16px;color:var(--c-primary)}
+.info p{margin-top:4px;font-size:16px}
+.survey .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:36px 64px}
+.survey .qrw{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto}
+.survey .qr{width:232px;height:232px;display:flex;align-items:center;justify-content:center;background:#fff}
+.survey .qr.ph{border:2px dashed #7B8794;color:#5F6B7A;font-size:20px;font-weight:700}
+.survey .qr img{width:100%;height:100%;display:block}
+.survey .qrw span{font-size:15px;font-weight:700;color:var(--c-primary)}
+.survey .txt{flex:1 1 420px;min-width:0}
+.steps{list-style:none;margin-top:20px;border-bottom:1px solid var(--c-line)}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:2px 12px;padding:14px 0;border-top:1px solid var(--c-line)}
+.steps li i{grid-row:span 2;font-style:normal;font-size:30px;font-weight:700;line-height:1.1;color:var(--c-primary)}
+.steps li b{font-size:18px}
+.steps li span{font-size:16px;color:var(--c-sub)}
+.must{margin-top:20px;padding:16px 18px;background:var(--c-yellow-soft);font-size:17px;font-weight:700}
+.contact .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 40px}
+.contact p{font-size:17px;flex:1 1 360px}
+.site-foot{background:var(--c-ink);color:#C4CEDA;padding:30px 0 36px;font-size:14px}
+.site-foot strong{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.site-foot span{display:block}
+:focus-visible{outline:3px solid var(--c-red);outline-offset:2px}
+
+@media (max-width:760px){
+  .survey .qrw{order:2}
+  .brand{display:none}
+  .nav .wrap{justify-content:flex-end}
+  .menu{flex-wrap:wrap;justify-content:flex-end;row-gap:0}
+  .menu a{padding:10px 6px;font-size:14px}
+  .nav .wrap{padding:6px 16px}
+  .lang button{padding:8px 10px}
+  .hero{padding:56px 0 52px}
+  .band{padding:44px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+:root{--dg-navy:#182849;--dg-bg:#F7F8FC;--dg-row:#EAEDF2;--dg-line:#E3E7EE;--dg-muted-ink:#62686C;--dg-radius:14px;--dg-radius-sm:10px;
+  --dg-shadow:0 1px 2px rgba(24,40,73,.04),0 4px 16px rgba(24,40,73,.05)}
+body{background:var(--dg-bg)}
+.nav{border-color:var(--dg-line)}
+.hero{background:#fff;border-bottom:1px solid var(--dg-line);padding:72px 0 64px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--dg-muted-ink);margin-bottom:12px}
+.cta{border-radius:999px;padding:12px 28px}
+.facts{border-top:0;background:var(--dg-bg);border:1px solid var(--dg-line);border-radius:var(--dg-radius);padding:6px 20px}
+.facts div:last-child{border-bottom:0}
+.band.tint{background:transparent}
+.band{padding:52px 0}
+.day{background:#fff;border:1px solid var(--dg-line);border-top:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:6px 18px 16px}
+.day .dh{border-bottom:0;padding:14px 0 10px}
+.minor{background:var(--dg-row);border-bottom:0;border-radius:var(--dg-radius-sm);padding:8px 14px;margin:6px 0;color:var(--dg-muted-ink)}
+.blk{border-radius:var(--dg-radius-sm)}
+.info{gap:12px;border-bottom:0;margin-top:20px}
+.info div{background:#fff;border:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:16px 20px}
+.survey .wrap{background:#fff;border:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:32px 36px;max-width:1072px}
+.survey .qr.ph{border-radius:var(--dg-radius-sm)}
+.must{border:1px solid #F0D58A;border-radius:var(--dg-radius-sm)}
+.band.line{border-top:0}
+.site-foot{background:var(--dg-navy)}
+@media (max-width:760px){.survey .wrap{margin:0 16px;padding:22px 18px}}
+.mr{display:flex;gap:12px}
+.mr span:first-child{white-space:nowrap}
+.minor{flex-direction:column;gap:2px}
+.minor.blank{visibility:hidden}
+.blk .tag{align-self:flex-start;margin-top:4px;font-size:13px;color:var(--dg-muted-ink);border:1px dashed #B9C3CF;border-radius:999px;padding:2px 10px;background:#fff}
+.mat .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 48px;background:#fff;border:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:28px 36px;max-width:1072px}
+.mat .txt{flex:1 1 420px;min-width:0}
+.mat .cta{text-decoration:none}
+.mat .wait{font-size:16px;font-weight:700;color:var(--c-primary);background:var(--c-sky);border-radius:var(--dg-radius-sm);padding:12px 18px}
+[hidden]{display:none !important}
+@media (max-width:760px){.mat .wrap{margin:0 16px;padding:22px 18px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand" data-t="brand"></span>
+    <div class="menu">
+      <a data-go="sec-tt" data-t="n1" tabindex="0" role="link"></a>
+      <a data-go="sec-mat" data-t="n6" tabindex="0" role="link"></a>
+      <a data-go="sec-info" data-t="n3" tabindex="0" role="link"></a>
+      <a data-go="sec-survey" data-t="n5" tabindex="0" role="link"></a>
+      <a data-go="sec-contact" data-t="n4" tabindex="0" role="link" class="opt-contact"></a>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" data-lang="ko" aria-pressed="true">한국어</button>
+        <button type="button" data-lang="es" aria-pressed="false">Español</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="main">
+      <div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="eyebrow" data-t="eyebrow"></p>
+      <h1 data-t="title2"></h1>
+      <p class="lead" data-t="lead"></p>
+      <div class="acts">
+        <button class="cta" type="button" data-go="sec-tt" data-t="cta"></button>
+        <button class="sub-link" type="button" data-go="sec-mat" data-t="cta2"></button>
+      </div>
+    </div>
+    <dl class="facts" id="facts"></dl>
+  </div>
+</header>
+
+<main>
+  <section class="band tint" id="sec-tt"><div class="wrap">
+    <h2 data-t="h_tt"></h2>
+    <p class="gov" data-t="gov"></p>
+    <div class="days" id="days"></div>
+  </div></section>
+
+  <section class="band mat" id="sec-mat"><div class="wrap">
+    <div class="txt">
+      <h2 data-t="h_mat"></h2>
+      <p class="gov" data-t="gov_mat"></p>
+    </div>
+    <div class="dl" id="dl"></div>
+  </div></section>
+
+  <section class="band" id="sec-info"><div class="wrap">
+    <h2 data-t="h_info"></h2>
+    <div class="info" id="cards"></div>
+  </div></section>
+
+  <section class="band tint survey" id="sec-survey"><div class="wrap">
+    <div class="qrw" id="qrw"><div class="qr" id="qr"></div><span data-t="sv_cap"></span></div>
+    <div class="txt">
+      <h2 data-t="h_sv"></h2>
+      <p class="gov" data-t="gov_sv"></p>
+      <ol class="steps" id="steps"></ol>
+      <p class="must" data-t="sv_must"></p>
+    </div>
+  </div></section>
+
+  <section class="band line contact opt-contact" id="sec-contact"><div class="wrap">
+    <h2 data-t="n4"></h2>
+    <p id="contact"></p>
+  </div></section>
+</main>
+
+<footer class="site-foot"><div class="wrap"><strong data-t="brand"></strong><span data-t="foot"></span><span id="org"></span></div></footer>
+
+<script>
+(function(){
+var DRIVE="";
+var QR="";
+var CONTACT={ko:"",es:""};
+var ORG={ko:"",es:""};
+var T={
+ ko:{eyebrow:"한-콜롬비아 디지털정부 협력센터(DGCC)",brand:"AIㆍ디지털정부 역량강화 교육",title2:"AIㆍ디지털정부\n역량강화 교육",
+  lead:"콜롬비아 디지털정부 유관 공무원이 AIㆍ디지털정부 정책을 개발하고 사업을 추진하는 역량을 높이기 위한 3일 과정입니다. 한국의 디지털정부와 AI 경험을 콜롬비아에 적용할 방향과 함께 다룹니다.",
+  cta:"일정 보기",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",
+  fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
+  h_tt:"교육 일정과 강의 내용",gov:"1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
+  days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
+  am:"오전",pm:"오후",lunch:"중식",reg:["등록, 오리엔테이션","등록","등록"],end:["일일 만족도 조사","일일 만족도 조사",""],
+  close3:"종합 만족도 조사, 수료식",
+  h_mat:"교재",gov_mat:"강의 교재(스페인어)를 휴대전화나 컴퓨터로 내려받을 수 있습니다.",dl_on:"교재 내려받기",dl_off:"교재는 2026. 12. 2.부터 이곳에서 내려받을 수 있습니다.",
+  h_info:"참가 안내",
+  info:[["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외 (MinTIC 소집)"],["참여 방법","대면 강의 기본. 대면 참석이 어려우면 실시간 화상 참여 가능"],["통역","모든 강의에 스페인어 순차통역 제공"],["교재","스페인어 교재를 2026. 12. 2.에 배포. 이 페이지의 「교재」에서 내려받기"],["수료","전체 시간의 80% 이상 출석 시 수료증 발급"]],
+  h_sv:"만족도 조사 참여 안내",gov_sv:"당일 강의가 모두 끝나면 QR 코드로 만족도 조사에 접속합니다. 조사를 제출해야 출석이 인정됩니다.",sv_cap:"교육 만족도 조사",
+  sv:[["QR 코드 스캔","휴대전화 카메라로 교육장에 안내된 QR 코드 스캔"],["만족도 조사 응답","당일 마지막 강의가 끝난 뒤 응답"],["조사 제출","제출을 마친 참가자만 출석 인정"]],
+  sv_must:"만족도 조사를 제출해야 출석이 인정됩니다. 반드시 QR 코드를 스캔해 참여해 주시기 바랍니다.",
+  foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
+ es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
+  lead:"Curso de 3 días para fortalecer las capacidades de los servidores públicos vinculados al gobierno digital en la formulación de políticas y el impulso de proyectos de IA y gobierno digital. Presenta la experiencia de Corea junto con enfoques para su adaptación para Colombia.",
+  cta:"Ver el programa",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",
+  fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
+  h_tt:"Programa y contenido de las clases",gov:"Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
+  days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
+  am:"Mañana",pm:"Tarde",lunch:"Almuerzo",reg:["Registro y orientación","Registro","Registro"],end:["Encuesta diaria de satisfacción","Encuesta diaria de satisfacción",""],
+  close3:"Encuesta general de satisfacción y ceremonia de clausura",
+  h_mat:"Material didáctico",gov_mat:"El material didáctico de las clases (en español) se puede descargar desde el celular o el computador.",dl_on:"Descargar el material didáctico",dl_off:"El material didáctico estará disponible para descarga en esta página a partir del 02/12/2026.",
+  h_info:"Información para participantes",
+  info:[["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital, convocados por el MinTIC"],["Modalidad","Clases presenciales. Quienes no puedan asistir podrán participar por videoconferencia en tiempo real"],["Interpretación","Todas las clases cuentan con interpretación consecutiva al español"],["Material didáctico","El material en español se distribuye el 02/12/2026 y se descarga desde la sección «Material» de esta página"],["Certificado","Se expide un certificado de finalización con una asistencia del 80 % o más"]],
+  h_sv:"Encuesta de satisfacción",gov_sv:"Al terminar las clases del día, acceda a la encuesta de satisfacción con el código QR. La asistencia se reconoce una vez enviada la encuesta.",sv_cap:"Encuesta de satisfacción de la capacitación",
+  sv:[["Escanee el código QR","Use la cámara del celular para escanear el código QR indicado en el lugar de la capacitación"],["Responda la encuesta","Se responde al terminar la última clase del día"],["Envíe la encuesta","La asistencia se reconoce solo a quienes envían la encuesta"]],
+  sv_must:"La asistencia se reconoce únicamente al enviar la encuesta de satisfacción. Es indispensable escanear el código QR y participar en la encuesta.",
+  foot:"Capacitación del proyecto «Estrategia para la mejora de la infraestructura, los servicios y la gobernanza del gobierno digital basado en IA en Colombia»."}
+};
+var L=[
+ [0,"am","09:00 – 12:00","디지털정부 정책ㆍ거버넌스","Política y gobernanza del gobierno digital",
+  ["한국 디지털정부 발전 과정과 추진 체계","정책ㆍ제도와 기관별 역할","한국의 AI 정책과 법제"],
+  ["Evolución del gobierno digital en Corea y su estructura de implementación","Políticas, marco institucional y funciones de las entidades","Políticas y legislación sobre IA en Corea"]],
+ [0,"pm","13:30 – 16:30","K-DID(디지털ID) 개요 및 적용 사례","Introducción a K-DID (identidad digital) y casos de aplicación",
+  ["디지털ID의 개념","한국 사례","신원확인ㆍ인증과 포털 서비스 연계 시 고려사항"],
+  ["Concepto de identidad digital","Casos de Corea","Aspectos para la verificación de identidad, la autenticación y la integración con los servicios de los portales"]],
+ [1,"am","09:00 – 12:00","AIㆍ빅데이터 동향 및 활용사례","Tendencias y casos de uso de la IA y los macrodatos",
+  ["기술과 정책 동향","한국과 주요국의 활용사례","필요한 데이터와 적용 시 고려사항"],
+  ["Tendencias tecnológicas y de política","Casos de uso en Corea y en otros países de referencia","Datos necesarios y aspectos que deben tenerse en cuenta para la adopción"]],
+ [1,"pm","13:30 – 16:30","공공서비스 혁신ㆍ민간기업 우수사례","Innovación en los servicios públicos y experiencias destacadas de empresas privadas",
+  ["한국의 AI 공공서비스 혁신 사례","민간기업의 공공 AIㆍ클라우드 우수사례","AI 적용에 적합한 업무 선정 기준","PoC 시연"],
+  ["Casos coreanos de innovación en los servicios públicos con IA","Experiencias destacadas de empresas privadas en IA y computación en la nube para el sector público","Criterios para seleccionar las tareas adecuadas para adoptar IA","Demostración de la Prueba de concepto (PoC)"]],
+ [2,"am","09:00 – 11:30","책임있는 공공 AI 거버넌스와 AIMS(ISO/IEC 42001)","Gobernanza responsable de la IA en el sector público y AIMS (ISO/IEC 42001)",
+  ["국제 규범과 주요국 사례","영향평가와 사람 검토 지점","ISO/IEC 42001 기반 기관 AI 관리체계의 구조","MSPI 연계와 기관 적용 단계"],
+  ["Normas internacionales y casos de países de referencia","Evaluación de impacto y puntos de revisión humana","Estructura del sistema institucional de gestión de IA basado en ISO/IEC 42001","Articulación con el MSPI y etapas de implementación institucional"]],
+ [2,"pm","13:30 –","완료보고 (PoC 시연 포함)","Reunión final del proyecto (incluye demostración de la PoC)",
+  ["사업 결과 발표","PoC 시연","질의응답"],
+  ["Presentación de los resultados del proyecto","Demostración de la PoC","Preguntas y respuestas"],
+  ["교육생 참석 가능 (예정)","Abierta a los participantes (por confirmar)"]]
+];
+var MINOR={reg:"08:30 – 09:00",lunch:"12:00 – 13:30",end:"16:30 – 17:00",close3:"11:30 – 12:00"};
+var KEY="capacitacion-d-lang",lang="ko";
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+function render(){
+  var t=T[lang],k=lang==="ko";document.documentElement.lang=lang;document.title=t.brand+" | DGCC";
+  document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=t[e.dataset.t];});
+  document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
+  var f=document.getElementById("facts");f.textContent="";
+  t.fx.forEach(function(x){var d=el("div");d.appendChild(el("dt",null,x[0]));d.appendChild(el("dd",null,x[1]));f.appendChild(d);});
+  var g=document.getElementById("days");g.textContent="";
+  t.days.forEach(function(d,i){
+    var s=el("section","day"),h=el("div","dh");h.appendChild(el("b",null,d[0]));h.appendChild(el("span",null,d[1]));s.appendChild(h);
+    function minor(rows){var m=el("div","minor");rows.forEach(function(r){var p=el("div","mr");p.appendChild(el("span",null,r[0]));p.appendChild(el("span",null,r[1]));m.appendChild(p);});s.appendChild(m);return m;}
+    function blk(p){var l=L.filter(function(x){return x[0]===i&&x[1]===p;})[0],b=el("div","blk "+p);
+      b.appendChild(el("span","slot",t[p]+" "+l[2]));b.appendChild(el("h3",null,k?l[3]:l[4]));
+      var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});b.appendChild(u);
+      if(l[7])b.appendChild(el("span","tag",k?l[7][0]:l[7][1]));s.appendChild(b);}
+    minor([[MINOR.reg,t.reg[i]]]);blk("am");
+    if(i===2)minor([[MINOR.close3,t.close3],[MINOR.lunch,t.lunch]]);else minor([[MINOR.lunch,t.lunch]]);
+    blk("pm");
+    if(t.end[i])minor([[MINOR.end,t.end[i]]]);else s.appendChild(el("div","minor blank"));
+    g.appendChild(s);});
+  var dl=document.getElementById("dl");dl.textContent="";
+  if(DRIVE){var a=el("a","cta",t.dl_on);a.href=DRIVE;a.target="_blank";a.rel="noopener";dl.appendChild(a);}else{dl.appendChild(el("p","wait",t.dl_off));}
+  var qw=document.getElementById("qrw"),q=document.getElementById("qr");q.textContent="";
+  if(QR){qw.hidden=false;var im=el("img");im.src=QR;im.alt=t.sv_cap;q.appendChild(im);}else{qw.hidden=true;}
+  var st=document.getElementById("steps");st.textContent="";
+  t.sv.forEach(function(x,i){var li=el("li");li.appendChild(el("i",null,String(i+1)));li.appendChild(el("b",null,x[0]));li.appendChild(el("span",null,x[1]));st.appendChild(li);});
+  var c=document.getElementById("cards");c.textContent="";
+  t.info.forEach(function(x){var d=el("div");d.appendChild(el("h3",null,x[0]));d.appendChild(el("p",null,x[1]));c.appendChild(d);});
+  var ct=CONTACT[lang];document.querySelectorAll(".opt-contact").forEach(function(e){e.hidden=!ct;});document.getElementById("contact").textContent=ct;
+  var o=document.getElementById("org");o.textContent=ORG[lang];o.hidden=!ORG[lang];
+}
+document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){lang=b.dataset.lang;try{localStorage.setItem(KEY,lang);}catch(e){}render();});});
+try{var s=localStorage.getItem(KEY);if(s)lang=s;else if((navigator.language||"").toLowerCase().indexOf("es")===0)lang="es";}catch(e){}
+document.querySelectorAll("[data-go]").forEach(function(a){function go(){var t=document.getElementById(a.dataset.go);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});}
+  a.addEventListener("click",go);a.addEventListener("keydown",function(e){if(e.key==="Enter")go();});});
+render();
+})();
+</script>
+</body>
+</html>
