@@ -164,18 +164,54 @@ body{background:var(--dg-bg)}
 .dsel button:hover{background:var(--c-sky)}
 .dsel button[aria-pressed="true"]{background:var(--c-primary);color:#fff}
 .dsel button em{font-style:normal;font-size:12px;font-weight:700;background:var(--c-yellow);color:var(--c-ink);border-radius:999px;padding:1px 8px}
-.dview{display:flex;flex-wrap:wrap;gap:24px 40px;margin-top:22px;background:#fff;border:1px solid var(--dg-line);border-top:3px solid var(--c-yellow);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:26px 30px;max-width:1072px}
-.dview .tl{flex:1 1 560px;min-width:0}
-.dview h3.dt{font-size:24px;color:var(--c-primary);margin-bottom:10px}
-.dview .minor{margin:6px 0}
-.dview .blk{margin:6px 0}
-.dview .blk h3{font-size:20px}
-.dview .blk ul{font-size:16px}
-.dview aside{flex:0 1 300px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;align-self:flex-start;background:var(--dg-bg);border:1px solid var(--dg-line);border-radius:var(--dg-radius-sm);padding:20px}
-.dview aside b{font-size:16px;color:var(--c-primary)}
-.dview aside small{font-size:14px;color:var(--dg-muted-ink)}
-.dview aside .cta,.dview aside .sub-link{text-decoration:none}
-@media (max-width:760px){.today>.wrap{padding:0 16px}.dview{padding:20px 16px}.dview aside{flex-basis:100%}.dsel button{padding:9px 14px;font-size:14px}}
+.dview{margin-top:22px;max-width:1072px;background:#fff;border:1px solid var(--dg-line);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);overflow:hidden}
+.dv-head{position:relative;background:var(--c-primary);color:#fff;padding:28px 32px 26px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px}
+.dv-head .fl{position:absolute;left:0;right:0;top:0;display:flex;height:5px}
+.dv-head .fl i{display:block}.dv-head .fl i:nth-child(1){flex:2;background:var(--c-yellow)}.dv-head .fl i:nth-child(2){flex:1;background:var(--c-blue)}.dv-head .fl i:nth-child(3){flex:1;background:var(--c-red)}
+.dv-date{display:flex;align-items:center;gap:18px}
+.dv-date b{font-size:72px;line-height:.9;font-weight:700;letter-spacing:-.04em}
+.dv-date p{font-size:13px;font-weight:700;letter-spacing:.06em;color:#BFD4EA;text-transform:uppercase}
+.dv-date h3{font-size:24px;line-height:1.25;margin-top:2px}
+.dv-chips{display:flex;flex-wrap:wrap;gap:8px}
+.dv-chips span{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:var(--dg-radius-sm);padding:9px 14px;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.dv-chips small{font-size:12px;font-weight:600;color:#BFD4EA}
+.tline{list-style:none;position:relative;padding:26px 32px 30px}
+.tline::before{content:"";position:absolute;left:calc(32px + 96px + 11px);top:34px;bottom:40px;width:2px;background:var(--dg-line)}
+.tline li{display:grid;grid-template-columns:96px 24px 1fr;column-gap:12px;align-items:start;padding:6px 0}
+.tline time{text-align:right;font-variant-numeric:tabular-nums;font-size:17px;font-weight:700;color:var(--c-primary);padding-top:14px;line-height:1.2}
+.tline time small{display:block;font-size:13px;font-weight:600;color:var(--dg-muted-ink)}
+.tline .dot{justify-self:center;width:14px;height:14px;margin-top:18px;border-radius:50%;background:#fff;border:3px solid var(--c-primary);position:relative;z-index:1}
+.tline li.mn time{font-size:14px;font-weight:600;color:var(--dg-muted-ink);padding-top:9px}
+.tline li.mn .dot{width:10px;height:10px;border:0;background:#C3CCD8;margin-top:13px}
+.tline li.mn .c{padding:8px 0;font-size:15px;color:var(--dg-muted-ink)}
+.tline li.am .dot{border-color:var(--c-blue)}.tline li.pm .dot{border-color:var(--c-yellow)}
+.tline .card{border:1px solid var(--dg-line);border-radius:var(--dg-radius);padding:18px 22px 20px;background:#fff}
+.tline li.am .card{background:linear-gradient(#fff,#fff) padding-box;box-shadow:inset 0 3px 0 var(--c-blue)}
+.tline li.pm .card{box-shadow:inset 0 3px 0 var(--c-yellow)}
+.tline .lab{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:3px 12px;margin-bottom:10px}
+.tline li.am .lab{background:var(--c-sky);color:var(--c-primary)}
+.tline li.pm .lab{background:var(--c-yellow-soft);color:#7A5200}
+.tline .card h4{font-size:21px;line-height:1.35;color:var(--c-ink)}
+.tline .card ul{list-style:none;margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:8px}
+.tline .card li{display:flex;gap:10px;padding:0;font-size:15px;line-height:1.5;color:var(--c-sub);background:var(--dg-bg);border-radius:var(--dg-radius-sm);padding:9px 12px}
+.tline .card li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--c-primary);margin-top:8px}
+.tline .card .tg{display:inline-block;margin-top:12px;font-size:13px;color:var(--dg-muted-ink);border:1px dashed #B9C3CF;border-radius:999px;padding:2px 10px}
+.tline li.sv .dot{border-color:var(--c-red)}
+.tline .svc{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;background:var(--c-yellow-soft);border:1px solid #F0D58A;border-radius:var(--dg-radius);padding:18px 22px}
+.tline .svc h4{font-size:20px;color:var(--c-ink)}
+.tline .svc p{font-size:15px;color:var(--c-sub);margin-top:4px}
+.tline .svc .go{display:flex;align-items:center;gap:16px}
+.tline .svc img{width:108px;height:108px;background:#fff;border:3px solid var(--c-primary);border-radius:12px;padding:5px;image-rendering:pixelated;cursor:pointer}
+.tline .svc .cta{text-decoration:none}
+.tline .svc .url{display:block;margin-top:8px;font-size:14px;font-weight:600;color:var(--c-primary)}
+.tline li.mat .c{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:8px 0}
+.tline li.mat a{font-size:15px;font-weight:700;color:var(--c-primary);text-decoration:none;border:1px solid var(--c-primary);border-radius:999px;padding:8px 18px}
+.tline li.mat a:hover{background:var(--c-sky)}
+@media (max-width:760px){.today>.wrap{padding:0 16px}.dsel button{padding:9px 14px;font-size:14px}
+ .dv-head{padding:24px 18px 20px}.dv-date b{font-size:56px}.dv-date h3{font-size:20px}
+ .tline{padding:18px 14px 22px}.tline::before{left:calc(14px + 52px + 8px)}
+ .tline li{grid-template-columns:52px 16px 1fr;column-gap:8px}.tline time{font-size:14px}.tline time small{font-size:12px}
+ .tline .card{padding:14px 14px 16px}.tline .card h4{font-size:18px}.tline .svc{padding:16px}.tline .svc .go{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -268,7 +304,7 @@ var ORG={ko:"",es:""};
 var T={
  ko:{eyebrow:"한-콜롬비아 디지털정부 협력센터(DGCC)",brand:"AIㆍ디지털정부 역량강화 교육",title2:"AIㆍ디지털정부\n역량강화 교육",
   lead:"콜롬비아 디지털정부 유관 공무원이 AIㆍ디지털정부 정책을 개발하고 사업을 추진하는 역량을 높이기 위한 3일 과정입니다. 한국의 디지털정부와 AI 경험을 콜롬비아에 적용할 방향과 함께 다룹니다.",
-  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",n7:"일자별 교육",td_h2:"일자별 교육",td_all:"전체 일정",td_today:"오늘",td_btn:["1일차 12. 9.(수)","2일차 12. 10.(목)","3일차 12. 11.(금)"],td_sv:"만족도 조사 바로가기",td_svh:"만족도 조사",td_qr:"QR 코드 보기",sv_scan:"휴대전화 카메라로 스캔",td_time:["응답 시간 16:30 – 18:30","응답 시간 16:30 – 18:30","응답 시간 11:30 – 12:30 (수료식 전)"],td_dl:"교재 내려받기",td_date:["12. 9.","12. 10.","12. 11."],td_mat:"교재",
+  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",n7:"일자별 교육",td_h2:"일자별 교육",td_all:"전체 일정",td_today:"오늘",td_btn:["1일차 12. 9.(수)","2일차 12. 10.(목)","3일차 12. 11.(금)"],td_sv:"만족도 조사 바로가기",td_svh:"만족도 조사",td_qr:"QR 코드 보기",sv_scan:"휴대전화 카메라로 스캔",td_time:["응답 시간 16:30 – 18:30","응답 시간 16:30 – 18:30","응답 시간 11:30 – 12:30 (수료식 전)"],td_dl:"교재 내려받기",td_date:["12. 9.","12. 10.","12. 11."],td_mat:"교재",td_month:"2026년 12월",td_must:"제출해야 출석이 인정됩니다.",td_svat:["16:30 – 18:30","16:30 – 18:30","11:30 – 12:30"],td_chips:[[["강의","09:00 – 16:30"],["만족도 조사","16:30 – 18:30"]],[["강의","09:00 – 16:30"],["만족도 조사","16:30 – 18:30"]],[["강의","09:00 – 11:30"],["만족도 조사, 수료식","11:30 – 12:30"],["완료보고","13:30 –"]]],
   fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
   h_tt:"교육 일정과 강의 내용",gov:"1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
   days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
@@ -283,7 +319,7 @@ var T={
   foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
  es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
   lead:"Curso de 3 días para fortalecer las capacidades de los servidores públicos vinculados al gobierno digital en la formulación de políticas y el impulso de proyectos de IA y gobierno digital. Presenta la experiencia de Corea junto con enfoques para su adaptación para Colombia.",
-  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",n7:"Programa por día",td_h2:"Programa por día",td_all:"Programa completo",td_today:"Hoy",td_btn:["Día 1 (09/12)","Día 2 (10/12)","Día 3 (11/12)"],td_sv:"Abrir la encuesta",td_svh:"Encuesta de satisfacción",td_qr:"Ver el código QR",sv_scan:"Escanee con la cámara del celular",td_time:["Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 11:30 – 12:30 (antes de la ceremonia de clausura)"],td_dl:"Descargar el material didáctico",td_date:["09/12/2026","10/12/2026","11/12/2026"],td_mat:"Material didáctico",
+  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",n7:"Programa por día",td_h2:"Programa por día",td_all:"Programa completo",td_today:"Hoy",td_btn:["Día 1 (09/12)","Día 2 (10/12)","Día 3 (11/12)"],td_sv:"Abrir la encuesta",td_svh:"Encuesta de satisfacción",td_qr:"Ver el código QR",sv_scan:"Escanee con la cámara del celular",td_time:["Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 11:30 – 12:30 (antes de la ceremonia de clausura)"],td_dl:"Descargar el material didáctico",td_date:["09/12/2026","10/12/2026","11/12/2026"],td_mat:"Material didáctico",td_month:"Diciembre de 2026",td_must:"La asistencia se reconoce una vez enviada la encuesta.",td_svat:["16:30 – 18:30","16:30 – 18:30","11:30 – 12:30"],td_chips:[[["Clases","09:00 – 16:30"],["Encuesta","16:30 – 18:30"]],[["Clases","09:00 – 16:30"],["Encuesta","16:30 – 18:30"]],[["Clase","09:00 – 11:30"],["Encuesta y clausura","11:30 – 12:30"],["Reunión final","13:30 –"]]],
   fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
   h_tt:"Programa y contenido de las clases",gov:"Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
   days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
@@ -350,18 +386,25 @@ function render(){
     b.appendChild(document.createTextNode(i<0?t.td_all:t.td_btn[i]));if(i>=0&&i===TODAY)b.appendChild(el("em",null,t.td_today));
     b.addEventListener("click",function(){SEL=i;render();document.getElementById("sec-today").scrollIntoView({behavior:"smooth",block:"start"});});ds.appendChild(b);});
   var dv=document.getElementById("dview");dv.textContent="";dv.hidden=SEL<0;document.getElementById("sec-tt").hidden=SEL>=0;
-  if(SEL>=0){var i=SEL,tl=el("div","tl");dv.appendChild(tl);
-    tl.appendChild(el("h3","dt",t.days[i][1]+" ("+t.td_date[i]+")"));
-    function mn(a,b){var m=el("div","minor"),r=el("div","mr");r.appendChild(el("span",null,a));r.appendChild(el("span",null,b));m.appendChild(r);tl.appendChild(m);}
-    function bk(p){var l=L.filter(function(x){return x[0]===i&&x[1]===p;})[0],b=el("div","blk "+p);
-      b.appendChild(el("span","slot",t[p]+" "+l[2]));b.appendChild(el("h3",null,k?l[3]:l[4]));
-      var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});b.appendChild(u);
-      if(l[7])b.appendChild(el("span","tag",k?l[7][0]:l[7][1]));tl.appendChild(b);}
-    mn(MINOR.reg,t.reg[i]);bk("am");if(i===2)mn(MINOR.close3,t.close3);mn(MINOR.lunch,t.lunch);bk("pm");if(t.end[i])mn(MINOR.end,t.end[i]);
-    var as=el("aside");dv.appendChild(as);as.appendChild(el("b",null,t.td_svh));
-    var sv=el("a","cta",t.td_sv);sv.href=SURVEY;sv.target="_blank";sv.rel="noopener";as.appendChild(sv);as.appendChild(el("small",null,t.td_time[i]));
-    var qb=el("button","sub-link",t.td_qr);qb.type="button";qb.addEventListener("click",function(){document.getElementById("sec-survey").scrollIntoView({behavior:"smooth",block:"start"});});as.appendChild(qb);
-    if(DRIVE){as.appendChild(el("b",null,t.td_mat));var md=el("a","sub-link",t.td_dl);md.href=DRIVE;md.target="_blank";md.rel="noopener";as.appendChild(md);}}
+  if(SEL>=0){var i=SEL,hd=el("div","dv-head");dv.appendChild(hd);
+    var fl=el("div","fl");fl.appendChild(el("i"));fl.appendChild(el("i"));fl.appendChild(el("i"));hd.appendChild(fl);
+    var dt=el("div","dv-date");dt.appendChild(el("b",null,t.days[i][0]));var dw=el("div");dw.appendChild(el("p",null,t.td_month));dw.appendChild(el("h3",null,t.days[i][1]));dt.appendChild(dw);hd.appendChild(dt);
+    var ch=el("div","dv-chips");t.td_chips[i].forEach(function(c){var x=el("span");x.appendChild(el("small",null,c[0]));x.appendChild(document.createTextNode(c[1]));ch.appendChild(x);});hd.appendChild(ch);
+    var tl=el("ol","tline");dv.appendChild(tl);
+    function tm(a){var p=a.replace(/\s*–\s*$/,"").split(" – "),e=el("time",null,p[0]);if(p[1])e.appendChild(el("small",null,p[1]));return e;}
+    function item(cls,time,body){var li=el("li",cls);li.appendChild(tm(time));li.appendChild(el("i","dot"));var c=el("div","c");body(c);li.appendChild(c);tl.appendChild(li);}
+    function mn(time,txt){item("mn",time,function(c){c.textContent=txt;});}
+    function ss(p){var l=L.filter(function(x){return x[0]===i&&x[1]===p;})[0];
+      item(p,l[2],function(c){var d=el("div","card");d.appendChild(el("span","lab",t[p]));d.appendChild(el("h4",null,k?l[3]:l[4]));
+        var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});d.appendChild(u);
+        if(l[7])d.appendChild(el("span","tg",k?l[7][0]:l[7][1]));c.appendChild(d);});}
+    function svi(){item("sv",t.td_svat[i],function(c){var d=el("div","svc"),x=el("div");x.appendChild(el("h4",null,i===2?t.close3:t.end[i]));
+      x.appendChild(el("p",null,t.td_time[i]));x.appendChild(el("p",null,t.td_must));d.appendChild(x);
+      var g=el("div","go");if(QR){var im=el("img");im.src=QR;im.alt=t.sv_cap;im.title=t.td_qr;im.addEventListener("click",function(){document.getElementById("sec-survey").scrollIntoView({behavior:"smooth",block:"start"});});g.appendChild(im);}
+      var w=el("div"),sv=el("a","cta",t.td_sv);sv.href=SURVEY;sv.target="_blank";sv.rel="noopener";w.appendChild(sv);
+      var u=el("a","url",SURVEY.replace(/^https?:\/\//,""));u.href=SURVEY;u.target="_blank";u.rel="noopener";w.appendChild(u);g.appendChild(w);d.appendChild(g);c.appendChild(d);});}
+    mn(MINOR.reg,t.reg[i]);ss("am");if(i===2)svi();mn(MINOR.lunch,t.lunch);ss("pm");if(i!==2)svi();
+    if(DRIVE)item("mn mat","",function(c){c.appendChild(document.createTextNode(t.gov_mat));var md=el("a",null,t.td_dl);md.href=DRIVE;md.target="_blank";md.rel="noopener";c.appendChild(md);});}
   var dl=document.getElementById("dl");dl.textContent="";
   if(DRIVE){var a=el("a","cta",t.dl_on);a.href=DRIVE;a.target="_blank";a.rel="noopener";dl.appendChild(a);}else{dl.appendChild(el("p","wait",t.dl_off));}
   var qw=document.getElementById("qrw"),q=document.getElementById("qr");q.textContent="";
