@@ -154,6 +154,19 @@ body{background:var(--dg-bg)}
 .survey .qr img{image-rendering:pixelated}
 [hidden]{display:none !important}
 @media (max-width:760px){.mat .wrap{margin:0 16px;padding:22px 18px}}
+.today{padding-bottom:0}
+.today .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 48px;background:#fff;border:1px solid var(--dg-line);border-top:3px solid var(--c-yellow);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:28px 36px;max-width:1072px}
+.today .txt{flex:1 1 420px;min-width:0}
+.today .eyebrow{margin-bottom:6px}
+.tdl{list-style:none;margin-top:14px}
+.tdl li{display:flex;gap:14px;padding:8px 0;border-top:1px solid var(--dg-line);font-size:16px}
+.tdl li span{flex:0 0 118px;font-size:14px;font-weight:700;color:var(--c-primary);font-variant-numeric:tabular-nums;padding-top:2px}
+.tdl li.mn{font-size:14px;color:var(--dg-muted-ink)}
+.tdl li.mn span{color:var(--dg-muted-ink);font-weight:600}
+.tda{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.tda .cta,.tda .sub-link{text-decoration:none}
+.tda small{font-size:14px;color:var(--dg-muted-ink)}
+@media (max-width:760px){.today .wrap{margin:0 16px;padding:22px 18px}.tdl li span{flex-basis:96px}}
 </style>
 </head>
 <body>
@@ -192,6 +205,15 @@ body{background:var(--dg-bg)}
 </header>
 
 <main>
+  <section class="band today" id="sec-today" hidden><div class="wrap">
+    <div class="txt">
+      <p class="eyebrow" data-t="td_k"></p>
+      <h2 id="td_h"></h2>
+      <ul class="tdl" id="tdl"></ul>
+    </div>
+    <div class="tda" id="tda"></div>
+  </div></section>
+
   <section class="band tint" id="sec-tt"><div class="wrap">
     <h2 data-t="h_tt"></h2>
     <p class="gov" data-t="gov"></p>
@@ -240,7 +262,7 @@ var ORG={ko:"",es:""};
 var T={
  ko:{eyebrow:"한-콜롬비아 디지털정부 협력센터(DGCC)",brand:"AIㆍ디지털정부 역량강화 교육",title2:"AIㆍ디지털정부\n역량강화 교육",
   lead:"콜롬비아 디지털정부 유관 공무원이 AIㆍ디지털정부 정책을 개발하고 사업을 추진하는 역량을 높이기 위한 3일 과정입니다. 한국의 디지털정부와 AI 경험을 콜롬비아에 적용할 방향과 함께 다룹니다.",
-  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",
+  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",n7:"오늘의 교육",td_k:"오늘의 교육",td_sv:"오늘의 만족도 조사",td_time:["응답 시간 16:30 – 18:30","응답 시간 16:30 – 18:30","응답 시간 11:30 – 12:30 (수료식 전)"],td_dl:"교재 내려받기",td_date:["12. 9.","12. 10.","12. 11."],
   fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
   h_tt:"교육 일정과 강의 내용",gov:"1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
   days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
@@ -249,13 +271,13 @@ var T={
   h_mat:"교재",gov_mat:"강의 교재(스페인어)를 휴대전화나 컴퓨터로 내려받을 수 있습니다.",dl_on:"교재 내려받기 (구글 드라이브)",dl_off:"교재는 2026. 12. 2.부터 이곳에서 내려받을 수 있습니다.",
   h_info:"참가 안내",
   info:[["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외 (MinTIC 소집)"],["참여 방법","대면 강의 기본. 대면 참석이 어려우면 실시간 화상 참여 가능"],["통역","모든 강의에 스페인어 순차통역 제공"],["교재","스페인어 교재를 2026. 12. 2.에 배포. 이 페이지의 「교재」에서 내려받기"],["수료","전체 시간의 80% 이상 출석 시 수료증 발급"]],
-  h_sv:"만족도 조사 참여 안내",gov_sv:"당일 강의가 모두 끝나면 QR 코드로 만족도 조사에 접속합니다. 조사를 제출해야 출석이 인정됩니다.",sv_cap:"교육 만족도 조사",sv_go:"만족도 조사 바로가기",
-  sv:[["QR 코드 스캔","휴대전화 카메라로 QR 코드를 스캔하거나 「만족도 조사 바로가기」 누르기"],["만족도 조사 응답","당일 마지막 강의가 끝난 뒤 응답"],["조사 제출","제출을 마친 참가자만 출석 인정"]],
+  h_sv:"만족도 조사 참여 안내",gov_sv:"1일차와 2일차는 강의가 모두 끝난 뒤, 3일차는 수료식 전에 QR 코드로 만족도 조사에 접속합니다. 조사를 제출해야 출석이 인정됩니다.",sv_cap:"교육 만족도 조사",sv_go:"만족도 조사 바로가기",
+  sv:[["QR 코드 스캔","휴대전화 카메라로 QR 코드를 스캔하거나 「만족도 조사 바로가기」 누르기"],["만족도 조사 응답","1일차와 2일차는 마지막 강의가 끝난 뒤, 3일차는 수료식 전에 응답"],["조사 제출","제출을 마친 참가자만 출석 인정"]],
   sv_must:"만족도 조사를 제출해야 출석이 인정됩니다. 반드시 QR 코드를 스캔해 참여해 주시기 바랍니다.",
   foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
  es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
   lead:"Curso de 3 días para fortalecer las capacidades de los servidores públicos vinculados al gobierno digital en la formulación de políticas y el impulso de proyectos de IA y gobierno digital. Presenta la experiencia de Corea junto con enfoques para su adaptación para Colombia.",
-  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",
+  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",n7:"Hoy",td_k:"Hoy en la capacitación",td_sv:"Abrir la encuesta de hoy",td_time:["Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 11:30 – 12:30 (antes de la ceremonia de clausura)"],td_dl:"Descargar el material didáctico",td_date:["09/12/2026","10/12/2026","11/12/2026"],
   fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
   h_tt:"Programa y contenido de las clases",gov:"Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
   days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
@@ -264,8 +286,8 @@ var T={
   h_mat:"Material didáctico",gov_mat:"El material didáctico de las clases (en español) se puede descargar desde el celular o el computador.",dl_on:"Descargar el material didáctico (Google Drive)",dl_off:"El material didáctico estará disponible para descarga en esta página a partir del 02/12/2026.",
   h_info:"Información para participantes",
   info:[["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital, convocados por el MinTIC"],["Modalidad","Clases presenciales. Quienes no puedan asistir podrán participar por videoconferencia en tiempo real"],["Interpretación","Todas las clases cuentan con interpretación consecutiva al español"],["Material didáctico","El material en español se distribuye el 02/12/2026 y se descarga desde la sección «Material» de esta página"],["Certificado","Se expide un certificado de finalización con una asistencia del 80 % o más"]],
-  h_sv:"Encuesta de satisfacción",gov_sv:"Al terminar las clases del día, acceda a la encuesta de satisfacción con el código QR. La asistencia se reconoce una vez enviada la encuesta.",sv_cap:"Encuesta de satisfacción de la capacitación",sv_go:"Abrir la encuesta",
-  sv:[["Escanee el código QR","Escanee el código QR con la cámara del celular o pulse «Abrir la encuesta»"],["Responda la encuesta","Se responde al terminar la última clase del día"],["Envíe la encuesta","La asistencia se reconoce solo a quienes envían la encuesta"]],
+  h_sv:"Encuesta de satisfacción",gov_sv:"Los días 1 y 2 al terminar las clases, y el día 3 antes de la ceremonia de clausura, acceda a la encuesta de satisfacción con el código QR. La asistencia se reconoce una vez enviada la encuesta.",sv_cap:"Encuesta de satisfacción de la capacitación",sv_go:"Abrir la encuesta",
+  sv:[["Escanee el código QR","Escanee el código QR con la cámara del celular o pulse «Abrir la encuesta»"],["Responda la encuesta","Los días 1 y 2 se responde al terminar la última clase; el día 3, antes de la ceremonia de clausura"],["Envíe la encuesta","La asistencia se reconoce solo a quienes envían la encuesta"]],
   sv_must:"La asistencia se reconoce únicamente al enviar la encuesta de satisfacción. Es indispensable escanear el código QR y participar en la encuesta.",
   foot:"Capacitación del proyecto «Estrategia para la mejora de la infraestructura, los servicios y la gobernanza del gobierno digital basado en IA en Colombia»."}
 };
@@ -292,6 +314,11 @@ var L=[
 ];
 var MINOR={reg:"08:30 – 09:00",lunch:"12:00 – 13:30",end:"16:30 – 17:00",close3:"11:30 – 12:00"};
 var KEY="capacitacion-d-lang",lang="ko";
+var DAYS=["2026-12-09","2026-12-10","2026-12-11"];
+function dayIdx(){var q=(location.search.match(/[?&]date=(\d{4}-\d{2}-\d{2})/)||[])[1],d=q;
+  if(!d){try{d=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Bogota",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());}catch(e){d="";}}
+  return DAYS.indexOf(d);}
+var TODAY=dayIdx();
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 function render(){
   var t=T[lang],k=lang==="ko";document.documentElement.lang=lang;document.title=t.brand+" | DGCC";
@@ -312,6 +339,15 @@ function render(){
     blk("pm");
     if(t.end[i])minor([[MINOR.end,t.end[i]]]);else s.appendChild(el("div","minor blank"));
     g.appendChild(s);});
+  var ts=document.getElementById("sec-today");ts.hidden=TODAY<0;
+  if(TODAY>=0){var dd=t.days[TODAY];document.getElementById("td_h").textContent=dd[1]+" ("+t.td_date[TODAY]+")";
+    var tl=document.getElementById("tdl");tl.textContent="";
+    function row(a,b,c){var li=el("li",c);li.appendChild(el("span",null,a));li.appendChild(el("b",null,b));tl.appendChild(li);}
+    L.filter(function(x){return x[0]===TODAY;}).forEach(function(x,j){row(x[2],k?x[3]:x[4]);if(TODAY===2&&j===0)row(MINOR.close3,t.close3,"mn");});
+    if(t.end[TODAY])row(MINOR.end,t.end[TODAY],"mn");
+    var ta=document.getElementById("tda");ta.textContent="";
+    var sv=el("a","cta",t.td_sv);sv.href=SURVEY;sv.target="_blank";sv.rel="noopener";ta.appendChild(sv);ta.appendChild(el("small",null,t.td_time[TODAY]));
+    if(DRIVE){var md=el("a","sub-link",t.td_dl);md.href=DRIVE;md.target="_blank";md.rel="noopener";ta.appendChild(md);}}
   var dl=document.getElementById("dl");dl.textContent="";
   if(DRIVE){var a=el("a","cta",t.dl_on);a.href=DRIVE;a.target="_blank";a.rel="noopener";dl.appendChild(a);}else{dl.appendChild(el("p","wait",t.dl_off));}
   var qw=document.getElementById("qrw"),q=document.getElementById("qr");q.textContent="";
@@ -324,13 +360,13 @@ function render(){
   var ct=CONTACT[lang];document.querySelectorAll(".opt-contact").forEach(function(e){e.hidden=!ct;});document.getElementById("contact").textContent=ct;
   var o=document.getElementById("org");o.textContent=ORG[lang];o.hidden=!ORG[lang];
   var R=document.getElementById("rnbl");R.textContent="";
-  [["sec-tt","n1"],["sec-mat","n6"],["sec-info","n3"],["sec-survey","n5"]].forEach(function(x){var a=el("a");a.dataset.sec=x[0];a.appendChild(el("i"));a.appendChild(el("span",null,t[x[1]]));a.addEventListener("click",function(){var g=document.getElementById(x[0]);if(g)g.scrollIntoView({behavior:"smooth",block:"start"});closeR();});R.appendChild(a);});
+  (TODAY>=0?[["sec-today","n7"]]:[]).concat([["sec-tt","n1"],["sec-mat","n6"],["sec-info","n3"],["sec-survey","n5"]]).forEach(function(x){var a=el("a");a.dataset.sec=x[0];a.appendChild(el("i"));a.appendChild(el("span",null,t[x[1]]));a.addEventListener("click",function(){var g=document.getElementById(x[0]);if(g)g.scrollIntoView({behavior:"smooth",block:"start"});closeR();});R.appendChild(a);});
   var tp=el("a","top");tp.appendChild(el("i"));tp.appendChild(el("span",null,"↑ "+t.top));tp.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});closeR();});R.appendChild(tp);
   document.getElementById("rnbt").textContent=t.menu;markR();
 }
 function closeR(){var n=document.getElementById("rnb");n.classList.remove("open");document.getElementById("rnbt").setAttribute("aria-expanded","false");}
 document.getElementById("rnbt").addEventListener("click",function(){var n=document.getElementById("rnb");var o=n.classList.toggle("open");this.setAttribute("aria-expanded",String(o));});
-function markR(){var y=window.scrollY+window.innerHeight*0.35,cur="";["sec-tt","sec-mat","sec-info","sec-survey"].forEach(function(id){var e=document.getElementById(id);if(e&&e.offsetTop<=y)cur=id;});
+function markR(){var y=window.scrollY+window.innerHeight*0.35,cur="";["sec-today","sec-tt","sec-mat","sec-info","sec-survey"].forEach(function(id){var e=document.getElementById(id);if(e&&e.offsetTop<=y)cur=id;});
   document.querySelectorAll("#rnbl a[data-sec]").forEach(function(a){a.classList.toggle("on",a.dataset.sec===cur);});}
 window.addEventListener("scroll",markR,{passive:true});
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){lang=b.dataset.lang;try{localStorage.setItem(KEY,lang);}catch(e){}render();});});
