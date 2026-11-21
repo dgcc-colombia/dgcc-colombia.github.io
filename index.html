@@ -70,10 +70,13 @@ h2{font-size:28px;font-weight:700;color:var(--c-primary)}
 .info p{margin-top:4px;font-size:16px}
 .survey .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:36px 64px}
 .survey .qrw{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto}
-.survey .qr{width:232px;height:232px;display:flex;align-items:center;justify-content:center;background:#fff}
+.survey .qr{width:320px;height:320px;display:flex;align-items:center;justify-content:center;background:#fff;padding:14px;border:4px solid var(--c-primary);border-radius:18px;box-shadow:0 0 0 6px var(--c-yellow-soft)}
 .survey .qr.ph{border:2px dashed #7B8794;color:#5F6B7A;font-size:20px;font-weight:700}
 .survey .qr img{width:100%;height:100%;display:block}
-.survey .qrw span{font-size:15px;font-weight:700;color:var(--c-primary)}
+.survey .qrw span{font-size:18px;font-weight:700;color:var(--c-primary)}
+.survey .qrw .url{font-size:15px;font-weight:600;color:var(--c-primary);word-break:break-all;text-align:center}
+.survey .qrw .url:hover{text-decoration:underline}
+.survey .qrw .scan{font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--dg-muted-ink)}
 .survey .txt{flex:1 1 420px;min-width:0}
 .steps{list-style:none;margin-top:20px;border-bottom:1px solid var(--c-line)}
 .steps li{display:grid;grid-template-columns:44px 1fr;gap:2px 12px;padding:14px 0;border-top:1px solid var(--c-line)}
@@ -150,23 +153,29 @@ body{background:var(--dg-bg)}
  .rnb.open ul{display:block}
 }
 @media print{.rnb{display:none}}
-.svbtn{text-decoration:none;margin-top:4px}
+.svbtn{text-decoration:none;margin-top:4px;font-size:18px;padding:14px 34px}
+@media (max-width:760px){.survey .qrw{order:0}.survey .qr{width:min(280px,78vw);height:min(280px,78vw)}}
 .survey .qr img{image-rendering:pixelated}
 [hidden]{display:none !important}
 @media (max-width:760px){.mat .wrap{margin:0 16px;padding:22px 18px}}
 .today{padding-bottom:0}
-.today .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 48px;background:#fff;border:1px solid var(--dg-line);border-top:3px solid var(--c-yellow);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:28px 36px;max-width:1072px}
-.today .txt{flex:1 1 420px;min-width:0}
-.today .eyebrow{margin-bottom:6px}
-.tdl{list-style:none;margin-top:14px}
-.tdl li{display:flex;gap:14px;padding:8px 0;border-top:1px solid var(--dg-line);font-size:16px}
-.tdl li span{flex:0 0 118px;font-size:14px;font-weight:700;color:var(--c-primary);font-variant-numeric:tabular-nums;padding-top:2px}
-.tdl li.mn{font-size:14px;color:var(--dg-muted-ink)}
-.tdl li.mn span{color:var(--dg-muted-ink);font-weight:600}
-.tda{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.tda .cta,.tda .sub-link{text-decoration:none}
-.tda small{font-size:14px;color:var(--dg-muted-ink)}
-@media (max-width:760px){.today .wrap{margin:0 16px;padding:22px 18px}.tdl li span{flex-basis:96px}}
+.dsel{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.dsel button{font:inherit;font-size:15px;font-weight:700;padding:10px 18px;border:1px solid var(--c-primary);border-radius:999px;background:#fff;color:var(--c-primary);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.dsel button:hover{background:var(--c-sky)}
+.dsel button[aria-pressed="true"]{background:var(--c-primary);color:#fff}
+.dsel button em{font-style:normal;font-size:12px;font-weight:700;background:var(--c-yellow);color:var(--c-ink);border-radius:999px;padding:1px 8px}
+.dview{display:flex;flex-wrap:wrap;gap:24px 40px;margin-top:22px;background:#fff;border:1px solid var(--dg-line);border-top:3px solid var(--c-yellow);border-radius:var(--dg-radius);box-shadow:var(--dg-shadow);padding:26px 30px;max-width:1072px}
+.dview .tl{flex:1 1 560px;min-width:0}
+.dview h3.dt{font-size:24px;color:var(--c-primary);margin-bottom:10px}
+.dview .minor{margin:6px 0}
+.dview .blk{margin:6px 0}
+.dview .blk h3{font-size:20px}
+.dview .blk ul{font-size:16px}
+.dview aside{flex:0 1 300px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;align-self:flex-start;background:var(--dg-bg);border:1px solid var(--dg-line);border-radius:var(--dg-radius-sm);padding:20px}
+.dview aside b{font-size:16px;color:var(--c-primary)}
+.dview aside small{font-size:14px;color:var(--dg-muted-ink)}
+.dview aside .cta,.dview aside .sub-link{text-decoration:none}
+@media (max-width:760px){.today>.wrap{padding:0 16px}.dview{padding:20px 16px}.dview aside{flex-basis:100%}.dsel button{padding:9px 14px;font-size:14px}}
 </style>
 </head>
 <body>
@@ -175,7 +184,7 @@ body{background:var(--dg-bg)}
   <div class="wrap">
     <span class="brand" data-t="brand"></span>
     <div class="menu">
-      <a data-go="sec-tt" data-t="n1" tabindex="0" role="link"></a>
+      <a data-go="sec-today" data-t="n1" tabindex="0" role="link"></a>
       <a data-go="sec-mat" data-t="n6" tabindex="0" role="link"></a>
       <a data-go="sec-info" data-t="n3" tabindex="0" role="link"></a>
       <a data-go="sec-survey" data-t="n5" tabindex="0" role="link"></a>
@@ -196,7 +205,7 @@ body{background:var(--dg-bg)}
       <h1 data-t="title2"></h1>
       <p class="lead" data-t="lead"></p>
       <div class="acts">
-        <button class="cta" type="button" data-go="sec-tt" data-t="cta"></button>
+        <button class="cta" type="button" data-go="sec-today" data-t="cta"></button>
         <button class="sub-link" type="button" data-go="sec-mat" data-t="cta2"></button>
       </div>
     </div>
@@ -205,13 +214,10 @@ body{background:var(--dg-bg)}
 </header>
 
 <main>
-  <section class="band today" id="sec-today" hidden><div class="wrap">
-    <div class="txt">
-      <p class="eyebrow" data-t="td_k"></p>
-      <h2 id="td_h"></h2>
-      <ul class="tdl" id="tdl"></ul>
-    </div>
-    <div class="tda" id="tda"></div>
+  <section class="band today" id="sec-today"><div class="wrap">
+    <h2 data-t="td_h2"></h2>
+    <div class="dsel" id="dsel" role="group"></div>
+    <div class="dview" id="dview" hidden></div>
   </div></section>
 
   <section class="band tint" id="sec-tt"><div class="wrap">
@@ -234,7 +240,7 @@ body{background:var(--dg-bg)}
   </div></section>
 
   <section class="band tint survey" id="sec-survey"><div class="wrap">
-    <div class="qrw" id="qrw"><div class="qr" id="qr"></div><span data-t="sv_cap"></span><a class="cta svbtn" id="svbtn" target="_blank" rel="noopener"></a></div>
+    <div class="qrw" id="qrw"><span class="scan" data-t="sv_scan"></span><div class="qr" id="qr"></div><span data-t="sv_cap"></span><a class="cta svbtn" id="svbtn" target="_blank" rel="noopener"></a><a class="url" id="svurl" target="_blank" rel="noopener"></a></div>
     <div class="txt">
       <h2 data-t="h_sv"></h2>
       <p class="gov" data-t="gov_sv"></p>
@@ -262,7 +268,7 @@ var ORG={ko:"",es:""};
 var T={
  ko:{eyebrow:"한-콜롬비아 디지털정부 협력센터(DGCC)",brand:"AIㆍ디지털정부 역량강화 교육",title2:"AIㆍ디지털정부\n역량강화 교육",
   lead:"콜롬비아 디지털정부 유관 공무원이 AIㆍ디지털정부 정책을 개발하고 사업을 추진하는 역량을 높이기 위한 3일 과정입니다. 한국의 디지털정부와 AI 경험을 콜롬비아에 적용할 방향과 함께 다룹니다.",
-  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",n7:"오늘의 교육",td_k:"오늘의 교육",td_sv:"오늘의 만족도 조사",td_time:["응답 시간 16:30 – 18:30","응답 시간 16:30 – 18:30","응답 시간 11:30 – 12:30 (수료식 전)"],td_dl:"교재 내려받기",td_date:["12. 9.","12. 10.","12. 11."],
+  cta:"일정 보기",top:"맨 위로",menu:"메뉴",cta2:"교재 내려받기",n1:"일정",n3:"참가 안내",n4:"문의",n5:"만족도 조사",n6:"교재",n7:"일자별 교육",td_h2:"일자별 교육",td_all:"전체 일정",td_today:"오늘",td_btn:["1일차 12. 9.(수)","2일차 12. 10.(목)","3일차 12. 11.(금)"],td_sv:"만족도 조사 바로가기",td_svh:"만족도 조사",td_qr:"QR 코드 보기",sv_scan:"휴대전화 카메라로 스캔",td_time:["응답 시간 16:30 – 18:30","응답 시간 16:30 – 18:30","응답 시간 11:30 – 12:30 (수료식 전)"],td_dl:"교재 내려받기",td_date:["12. 9.","12. 10.","12. 11."],td_mat:"교재",
   fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
   h_tt:"교육 일정과 강의 내용",gov:"1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
   days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
@@ -277,7 +283,7 @@ var T={
   foot:"콜롬비아 AI 기반 디지털정부 인프라ㆍ서비스 및 거버넌스 개선 전략 수립 사업의 역량강화 교육입니다."},
  es:{eyebrow:"Centro de Cooperación en Gobierno Digital Corea-Colombia (DGCC)",brand:"Capacitación en IA y gobierno digital",title2:"Capacitación en IA\ny gobierno digital",
   lead:"Curso de 3 días para fortalecer las capacidades de los servidores públicos vinculados al gobierno digital en la formulación de políticas y el impulso de proyectos de IA y gobierno digital. Presenta la experiencia de Corea junto con enfoques para su adaptación para Colombia.",
-  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",n7:"Hoy",td_k:"Hoy en la capacitación",td_sv:"Abrir la encuesta de hoy",td_time:["Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 11:30 – 12:30 (antes de la ceremonia de clausura)"],td_dl:"Descargar el material didáctico",td_date:["09/12/2026","10/12/2026","11/12/2026"],
+  cta:"Ver el programa",top:"Inicio",menu:"Menú",cta2:"Descargar el material didáctico",n1:"Programa",n3:"Información",n4:"Contacto",n5:"Encuesta",n6:"Material",n7:"Programa por día",td_h2:"Programa por día",td_all:"Programa completo",td_today:"Hoy",td_btn:["Día 1 (09/12)","Día 2 (10/12)","Día 3 (11/12)"],td_sv:"Abrir la encuesta",td_svh:"Encuesta de satisfacción",td_qr:"Ver el código QR",sv_scan:"Escanee con la cámara del celular",td_time:["Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 16:30 – 18:30","Horario de respuesta: 11:30 – 12:30 (antes de la ceremonia de clausura)"],td_dl:"Descargar el material didáctico",td_date:["09/12/2026","10/12/2026","11/12/2026"],td_mat:"Material didáctico",
   fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
   h_tt:"Programa y contenido de las clases",gov:"Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
   days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
@@ -318,7 +324,7 @@ var DAYS=["2026-12-09","2026-12-10","2026-12-11"];
 function dayIdx(){var q=(location.search.match(/[?&]date=(\d{4}-\d{2}-\d{2})/)||[])[1],d=q;
   if(!d){try{d=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Bogota",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());}catch(e){d="";}}
   return DAYS.indexOf(d);}
-var TODAY=dayIdx();
+var TODAY=dayIdx(),SEL=TODAY;
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 function render(){
   var t=T[lang],k=lang==="ko";document.documentElement.lang=lang;document.title=t.brand+" | DGCC";
@@ -339,19 +345,27 @@ function render(){
     blk("pm");
     if(t.end[i])minor([[MINOR.end,t.end[i]]]);else s.appendChild(el("div","minor blank"));
     g.appendChild(s);});
-  var ts=document.getElementById("sec-today");ts.hidden=TODAY<0;
-  if(TODAY>=0){var dd=t.days[TODAY];document.getElementById("td_h").textContent=dd[1]+" ("+t.td_date[TODAY]+")";
-    var tl=document.getElementById("tdl");tl.textContent="";
-    function row(a,b,c){var li=el("li",c);li.appendChild(el("span",null,a));li.appendChild(el("b",null,b));tl.appendChild(li);}
-    L.filter(function(x){return x[0]===TODAY;}).forEach(function(x,j){row(x[2],k?x[3]:x[4]);if(TODAY===2&&j===0)row(MINOR.close3,t.close3,"mn");});
-    if(t.end[TODAY])row(MINOR.end,t.end[TODAY],"mn");
-    var ta=document.getElementById("tda");ta.textContent="";
-    var sv=el("a","cta",t.td_sv);sv.href=SURVEY;sv.target="_blank";sv.rel="noopener";ta.appendChild(sv);ta.appendChild(el("small",null,t.td_time[TODAY]));
-    if(DRIVE){var md=el("a","sub-link",t.td_dl);md.href=DRIVE;md.target="_blank";md.rel="noopener";ta.appendChild(md);}}
+  var ds=document.getElementById("dsel");ds.textContent="";
+  [-1,0,1,2].forEach(function(i){var b=el("button");b.type="button";b.setAttribute("aria-pressed",String(SEL===i));
+    b.appendChild(document.createTextNode(i<0?t.td_all:t.td_btn[i]));if(i>=0&&i===TODAY)b.appendChild(el("em",null,t.td_today));
+    b.addEventListener("click",function(){SEL=i;render();document.getElementById("sec-today").scrollIntoView({behavior:"smooth",block:"start"});});ds.appendChild(b);});
+  var dv=document.getElementById("dview");dv.textContent="";dv.hidden=SEL<0;document.getElementById("sec-tt").hidden=SEL>=0;
+  if(SEL>=0){var i=SEL,tl=el("div","tl");dv.appendChild(tl);
+    tl.appendChild(el("h3","dt",t.days[i][1]+" ("+t.td_date[i]+")"));
+    function mn(a,b){var m=el("div","minor"),r=el("div","mr");r.appendChild(el("span",null,a));r.appendChild(el("span",null,b));m.appendChild(r);tl.appendChild(m);}
+    function bk(p){var l=L.filter(function(x){return x[0]===i&&x[1]===p;})[0],b=el("div","blk "+p);
+      b.appendChild(el("span","slot",t[p]+" "+l[2]));b.appendChild(el("h3",null,k?l[3]:l[4]));
+      var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});b.appendChild(u);
+      if(l[7])b.appendChild(el("span","tag",k?l[7][0]:l[7][1]));tl.appendChild(b);}
+    mn(MINOR.reg,t.reg[i]);bk("am");if(i===2)mn(MINOR.close3,t.close3);mn(MINOR.lunch,t.lunch);bk("pm");if(t.end[i])mn(MINOR.end,t.end[i]);
+    var as=el("aside");dv.appendChild(as);as.appendChild(el("b",null,t.td_svh));
+    var sv=el("a","cta",t.td_sv);sv.href=SURVEY;sv.target="_blank";sv.rel="noopener";as.appendChild(sv);as.appendChild(el("small",null,t.td_time[i]));
+    var qb=el("button","sub-link",t.td_qr);qb.type="button";qb.addEventListener("click",function(){document.getElementById("sec-survey").scrollIntoView({behavior:"smooth",block:"start"});});as.appendChild(qb);
+    if(DRIVE){as.appendChild(el("b",null,t.td_mat));var md=el("a","sub-link",t.td_dl);md.href=DRIVE;md.target="_blank";md.rel="noopener";as.appendChild(md);}}
   var dl=document.getElementById("dl");dl.textContent="";
   if(DRIVE){var a=el("a","cta",t.dl_on);a.href=DRIVE;a.target="_blank";a.rel="noopener";dl.appendChild(a);}else{dl.appendChild(el("p","wait",t.dl_off));}
   var qw=document.getElementById("qrw"),q=document.getElementById("qr");q.textContent="";
-  var sb=document.getElementById("svbtn");sb.href=SURVEY;sb.textContent=t.sv_go;
+  var sb=document.getElementById("svbtn");sb.href=SURVEY;sb.textContent=t.sv_go;var su=document.getElementById("svurl");su.href=SURVEY;su.textContent=SURVEY.replace(/^https?:\/\//,"");
   if(QR){qw.hidden=false;var im=el("img");im.src=QR;im.alt=t.sv_cap;q.appendChild(im);}else{qw.hidden=true;}
   var st=document.getElementById("steps");st.textContent="";
   t.sv.forEach(function(x,i){var li=el("li");li.appendChild(el("i",null,String(i+1)));li.appendChild(el("b",null,x[0]));li.appendChild(el("span",null,x[1]));st.appendChild(li);});
@@ -360,7 +374,7 @@ function render(){
   var ct=CONTACT[lang];document.querySelectorAll(".opt-contact").forEach(function(e){e.hidden=!ct;});document.getElementById("contact").textContent=ct;
   var o=document.getElementById("org");o.textContent=ORG[lang];o.hidden=!ORG[lang];
   var R=document.getElementById("rnbl");R.textContent="";
-  (TODAY>=0?[["sec-today","n7"]]:[]).concat([["sec-tt","n1"],["sec-mat","n6"],["sec-info","n3"],["sec-survey","n5"]]).forEach(function(x){var a=el("a");a.dataset.sec=x[0];a.appendChild(el("i"));a.appendChild(el("span",null,t[x[1]]));a.addEventListener("click",function(){var g=document.getElementById(x[0]);if(g)g.scrollIntoView({behavior:"smooth",block:"start"});closeR();});R.appendChild(a);});
+  [["sec-today","n7"]].concat(SEL<0?[["sec-tt","n1"]]:[]).concat([["sec-mat","n6"],["sec-info","n3"],["sec-survey","n5"]]).forEach(function(x){var a=el("a");a.dataset.sec=x[0];a.appendChild(el("i"));a.appendChild(el("span",null,t[x[1]]));a.addEventListener("click",function(){var g=document.getElementById(x[0]);if(g)g.scrollIntoView({behavior:"smooth",block:"start"});closeR();});R.appendChild(a);});
   var tp=el("a","top");tp.appendChild(el("i"));tp.appendChild(el("span",null,"↑ "+t.top));tp.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});closeR();});R.appendChild(tp);
   document.getElementById("rnbt").textContent=t.menu;markR();
 }
