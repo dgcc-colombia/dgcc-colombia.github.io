@@ -362,8 +362,8 @@ var T={
   fx:[["기간","2026. 12. 9.(수) ~ 12. 11.(금)"],["시간","매일 08:30 시작"],["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외"],["언어","스페인어 순차통역"]],
   h_tt:"교육 일정과 강의 내용",gov:"1일차는 MinTIC과 DGCC 개회 인사로 시작합니다. 1일차와 2일차는 하루 강의 2개, 3일차는 오전 강의 뒤 수료식과 완료보고가 이어집니다. 모든 강의에 스페인어 순차통역을 제공합니다.",
   days:[["9","1일차, 수요일"],["10","2일차, 목요일"],["11","3일차, 금요일"]],
-  am:"오전",pm:"오후",lunch:"중식",open:"개회 인사 (MinTIC, DGCC)",brk:"휴식",cert:"수료식",reg:["등록, 오리엔테이션","등록","등록"],end:["일일 만족도 조사","일일 만족도 조사",""],
-  close3:"종합 만족도 조사",
+  am:"오전",pm:"오후",lunch:"중식",open:"개회 인사 (MinTIC, DGCC)",brk:"휴식",reg:["등록, 오리엔테이션","등록","등록"],end:["일일 만족도 조사","일일 만족도 조사",""],
+  close3:"종합 만족도 조사 및 수료식",
   h_mat:"교재",gov_mat:"강의 교재(스페인어)를 휴대전화나 컴퓨터로 내려받을 수 있습니다.",dl_on:"교재 내려받기 (구글 드라이브)",dl_off:"교재는 2026. 12. 2.부터 이곳에서 내려받을 수 있습니다.",
   h_info:"참가 안내",
   info:[["장소","보고타, MinTIC 제공 시설 (확정 후 안내)"],["대상","디지털정부 유관 공무원 50명 내외 (MinTIC 소집)"],["참여 방법","대면 강의 기본. 대면 참석이 어려우면 실시간 화상 참여 가능"],["통역","모든 강의에 스페인어 순차통역 제공"],["교재","스페인어 교재를 2026. 12. 2.에 배포. 이 페이지의 「교재」에서 내려받기"],["수료","전체 시간의 80% 이상 출석 시 수료증 발급"]],
@@ -377,8 +377,8 @@ var T={
   fx:[["Fechas","09/12/2026 – 11/12/2026"],["Horario","Todos los días desde las 08:30"],["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital"],["Idioma","Interpretación consecutiva al español"]],
   h_tt:"Programa y contenido de las clases",gov:"El día 1 comienza con las palabras de apertura del MinTIC y de DGCC. Los días 1 y 2 incluyen 2 clases por día. El día 3 incluye una clase en la mañana, seguida de la ceremonia de clausura y la reunión final del proyecto. Todas las clases cuentan con interpretación consecutiva al español.",
   days:[["9","Día 1, miércoles"],["10","Día 2, jueves"],["11","Día 3, viernes"]],
-  am:"Mañana",pm:"Tarde",lunch:"Almuerzo",open:"Palabras de apertura (MinTIC y DGCC)",brk:"Pausa",cert:"Entrega de certificados",reg:["Registro y orientación","Registro","Registro"],end:["Encuesta diaria de satisfacción","Encuesta diaria de satisfacción",""],
-  close3:"Encuesta general de satisfacción",
+  am:"Mañana",pm:"Tarde",lunch:"Almuerzo",open:"Palabras de apertura (MinTIC y DGCC)",brk:"Pausa",reg:["Registro y orientación","Registro","Registro"],end:["Encuesta diaria de satisfacción","Encuesta diaria de satisfacción",""],
+  close3:"Encuesta general de satisfacción y entrega de certificados",
   h_mat:"Material didáctico",gov_mat:"El material didáctico de las clases (en español) se puede descargar desde el celular o el computador.",dl_on:"Descargar el material didáctico (Google Drive)",dl_off:"El material didáctico estará disponible para descarga en esta página a partir del 02/12/2026.",
   h_info:"Información para participantes",
   info:[["Lugar","Bogotá, instalaciones facilitadas por el MinTIC (se informará una vez confirmado)"],["Participantes","Alrededor de 50 servidores públicos vinculados al gobierno digital, convocados por el MinTIC"],["Modalidad","Clases presenciales. Quienes no puedan asistir podrán participar por videoconferencia en tiempo real"],["Interpretación","Todas las clases cuentan con interpretación consecutiva al español"],["Material didáctico","El material en español se distribuye el 02/12/2026 y se descarga desde la sección «Material» de esta página"],["Certificado","Se expide un certificado de finalización con una asistencia del 80 % o más"]],
@@ -408,7 +408,7 @@ var L=[
   ["Presentación de los resultados del proyecto","Demostración de la PoC","Preguntas y respuestas"],
   ["교육생 참석 가능 (예정)","Abierta a los participantes (por confirmar)"]]
 ];
-var MINOR={reg:"08:30 – 09:00",open:"09:00 – 09:10",lunch:["12:15 – 13:15","12:15 – 13:15","12:30 – 13:30"],end:"16:30 – 17:00",close3:"11:45 – 12:00",cert:"12:00 – 12:30"};
+var MINOR={reg:"08:30 – 09:00",open:"09:00 – 09:10",lunch:["12:15 – 13:15","12:15 – 13:15","12:15 – 13:30"],end:"16:30 – 17:00",close3:"11:45 – 12:15"};
 var BRK={"0am":"10:30 – 10:45","0pm":"14:45 – 15:00","1am":"10:30 – 10:45","1pm":"14:45 – 15:00","2am":"10:30 – 10:45"};
 var KEY="capacitacion-d-lang",lang="ko";
 var DAYS=["2026-12-09","2026-12-10","2026-12-11"];
@@ -432,7 +432,7 @@ function render(){
       var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});b.appendChild(u);
       if(BRK[i+p])b.appendChild(el("span","tag",t.brk+" "+BRK[i+p]));if(l[7])b.appendChild(el("span","tag",k?l[7][0]:l[7][1]));s.appendChild(b);}
     minor([[MINOR.reg,t.reg[i]]].concat(i===0?[[MINOR.open,t.open]]:[]));blk("am");
-    if(i===2)minor([[MINOR.close3,t.close3],[MINOR.cert,t.cert],[MINOR.lunch[i],t.lunch]]);else minor([[MINOR.lunch[i],t.lunch]]);
+    if(i===2)minor([[MINOR.close3,t.close3],[MINOR.lunch[i],t.lunch]]);else minor([[MINOR.lunch[i],t.lunch]]);
     blk("pm");
     if(t.end[i])minor([[MINOR.end,t.end[i]]]);else s.appendChild(el("div","minor blank"));
     g.appendChild(s);});
@@ -455,7 +455,7 @@ function render(){
         var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});d.appendChild(u);
         if(BRK[i+p])d.appendChild(el("span","tg",t.brk+" "+BRK[i+p]));if(l[7])d.appendChild(el("span","tg",k?l[7][0]:l[7][1]));c.appendChild(d);});}
     function svi(){item("mn sv",i===2?MINOR.close3:MINOR.end,function(c){c.appendChild(el("b",null,i===2?t.close3:t.end[i]));c.appendChild(el("span",null,t.td_must));});}
-    mn(MINOR.reg,t.reg[i]);if(i===0)mn(MINOR.open,t.open);ss("am");if(i===2){svi();mn(MINOR.cert,t.cert);}mn(MINOR.lunch[i],t.lunch);ss("pm");if(i!==2)svi();
+    mn(MINOR.reg,t.reg[i]);if(i===0)mn(MINOR.open,t.open);ss("am");if(i===2)svi();mn(MINOR.lunch[i],t.lunch);ss("pm");if(i!==2)svi();
   });
   if(SEL<0){var wk=el("div","wk");box.appendChild(wk);
     [0,1,2].forEach(function(i){var w=el("section","wd");wk.appendChild(w);
@@ -467,7 +467,7 @@ function render(){
         var u=el("ul");(k?l[5]:l[6]).forEach(function(x){u.appendChild(el("li",null,x));});c.appendChild(u);
         if(BRK[i+p])c.appendChild(el("span","tg",t.brk+" "+BRK[i+p]));if(l[7])c.appendChild(el("span","tg",k?l[7][0]:l[7][1]));w.appendChild(c);}
       wm([[MINOR.reg,t.reg[i]]].concat(i===0?[[MINOR.open,t.open]]:[]));ws("am");
-      if(i===2)wm([[MINOR.close3,t.close3,"sv"],[MINOR.cert,t.cert],[MINOR.lunch[i],t.lunch]]);else wm([[MINOR.lunch[i],t.lunch]]);
+      if(i===2)wm([[MINOR.close3,t.close3,"sv"],[MINOR.lunch[i],t.lunch]]);else wm([[MINOR.lunch[i],t.lunch]]);
       ws("pm");
       if(t.end[i])wm([[MINOR.end,t.end[i],"sv"]]);else w.appendChild(el("div","wm blank"));});}
   var dl=document.getElementById("dl");dl.textContent="";
